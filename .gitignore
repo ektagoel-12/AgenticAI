@@ -5,3 +5,4 @@ __pycache__/
 .vscode/
 *.pyc
 "@ | Out-File -Encoding utf8 .gitignore
+job_outreach_env/
