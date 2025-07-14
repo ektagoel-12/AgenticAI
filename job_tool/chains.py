@@ -4,15 +4,22 @@ from langchain_core.prompts import PromptTemplate
 from langchain_core.output_parsers import JsonOutputParser
 from langchain_core.exceptions import OutputParserException
 from dotenv import load_dotenv
+from langchain.chat_models import ChatOpenAI
+
 
 load_dotenv()
 
 class Chain:
     def __init__(self):
-        self.llm=ChatGroq(
-            model="llama3-70b-8192",
-            temperature=0,
-            groq_api_key=os.getenv("GROQ_API_KEY")
+        # self.llm=ChatGroq(
+        self.llm=ChatOpenAI(
+            # model="llama3-70b-8192",
+            # temperature=0,
+            # groq_api_key=os.getenv("GROQ_API_KEY")
+            model="accounts/fireworks/models/llama4-maverick-instruct-basic",
+            openai_api_base="https://api.fireworks.ai/inference/v1",
+            openai_api_key=os.getenv("FIREWORKS_API_KEY"),
+            temperature=0.6
         )
     def extract_jobs(self,cleaned_text):
         prompt_extract = PromptTemplate.from_template(

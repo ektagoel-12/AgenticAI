@@ -8,7 +8,7 @@ import tempfile
 import os
 
 def create_streamlit_app(llm, portfolio, clean_text):
-    st.title("📧Job Outreach Tool r")
+    st.title("📧Job Outreach Tool")
 
     # Step 1: Upload Resume
     st.header("Upload your Resume(PDF)")
